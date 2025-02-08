@@ -1,18 +1,33 @@
+import java.awt.*;
+
 public class BallThread extends Thread {
     private Ball b;
-    public BallThread(Ball ball){
+    private BallCanvas canvas;
+
+    public BallThread(Ball ball, BallCanvas canvas){
         b = ball;
+        this.canvas = canvas;
     }
+
     @Override
     public void run(){
         try{
-            for(int i=1; i<10000; i++){
-                b.move();
-                System.out.println("Thread name = "
-                        + Thread.currentThread().getName());
+            while(b.move()){
+//                System.out.println("Thread name = "
+//                        + Thread.currentThread().getName());
+
                 Thread.sleep(5);
             }
-        } catch(InterruptedException ex){
+
+            try {
+                canvas.remove(b);
+                canvas.repaint();
+            }
+            catch (Exception e){
+                System.out.println("Ball already removed");
+            }
+
+        } catch(InterruptedException _){
         }
     }
 }

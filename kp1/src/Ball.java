@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
+import java.util.ArrayList;
 import java.util.Random;
 
 class Ball {
@@ -11,6 +12,8 @@ class Ball {
 
     private int x = 0;
     private int y= 0;
+
+    private Color ballColor = Color.darkGray;
 
     private int dx = 2;
     private int dy = 2;
@@ -26,16 +29,22 @@ class Ball {
         }
     }
 
+    public Ball(Component c, int x, int y){
+        this.canvas = c;
+        this.x = x;
+        this.y = y;
+    }
+
     public static void f(){
         int a = 0;
     }
 
     public void draw (Graphics2D g2){
-        g2.setColor(Color.darkGray);
+        g2.setColor(ballColor);
         g2.fill(new Ellipse2D.Double(x,y,XSIZE,YSIZE));
     }
 
-    public void move(){
+    public boolean move(){
         x+=dx;
         y+=dy;
         if(x<0){
@@ -54,6 +63,30 @@ class Ball {
             y = this.canvas.getHeight()-YSIZE;
             dy = -dy;
         }
+
+        if (isBallInPocket()){
+            BounceFrame.decreaseBallCounter();
+            this.canvas.repaint();
+            return false;
+        }
+
         this.canvas.repaint();
+        return true;
     }
+
+    public void setBallColor(Color c){
+        this.ballColor = c;
+    }
+
+    private boolean isBallInPocket(){
+        Point ballPoint = new Point(this.x, this.y);
+        for(Pocket pocket : BallCanvas.getPockets()){
+           if (ballPoint.distanceTo(pocket.getPosition()) < Pocket.getPocketRadius()){
+               return true;
+           }
+        }
+        return false;
+    }
+
+
 }
