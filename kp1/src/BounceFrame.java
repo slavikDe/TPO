@@ -32,6 +32,7 @@ public class BounceFrame extends JFrame {
         buttonPanel.setBackground(Color.lightGray);
         JButton buttonStart = new JButton("Start");
         JButton buttonTestPriority = new JButton("Test Priority");
+        JButton buttonTestJoin = new JButton("Test Join");
         JButton buttonAddPocket = new JButton("Add Pocket");
         JButton buttonStop = new JButton("Stop");
 
@@ -42,7 +43,7 @@ public class BounceFrame extends JFrame {
                   Ball b = new Ball(canvas);
                   ballCounter = canvas.add(b);
                   labelBallCounter.setText("Ball counter: " + ballCounter);
-                  BallThread thread = new BallThread(b, canvas);
+                  BallThread thread = new BallThread(b, canvas, null);
                   thread.start();
 //                  System.out.println("Thread name = " + thread.getName());
               }
@@ -74,6 +75,25 @@ public class BounceFrame extends JFrame {
             }
         });
 
+        buttonTestJoin.addActionListener(new ActionListener() {
+            final int pocketCount = 2;
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Ball b1 = new Ball(canvas);
+                b1.setBallColor(Color.blue);
+                ballCounter = canvas.add(b1);
+                Ball b2 = new Ball(canvas);
+                b2.setBallColor(Color.red);
+                ballCounter = canvas.add(b2);
+                BallThread thread1 = new BallThread(b1, canvas, null);
+                BallThread thread2 = new BallThread(b2, canvas, thread1);
+
+                thread1.start();
+                thread2.start();
+            }
+        });
+
         buttonAddPocket.addActionListener(new ActionListener() {
            @Override
            public void actionPerformed(ActionEvent e) {
@@ -94,13 +114,10 @@ public class BounceFrame extends JFrame {
         buttonPanel.add(buttonStart);
         buttonPanel.add(buttonTestPriority);
         buttonPanel.add(buttonStop);
+        buttonPanel.add(buttonTestJoin);
         buttonPanel.add(buttonAddPocket);
         buttonPanel.add(labelBallCounter);
         content.add(buttonPanel, BorderLayout.SOUTH);
-
-
-
-
     }
 
     private Thread createBallThread( BallCanvas canvas, int x, int y, Color c, int priority ) {
@@ -108,7 +125,7 @@ public class BounceFrame extends JFrame {
         ballCounter = canvas.add(b);
         b.setBallColor(c);
         labelBallCounter.setText("Ball counter: " + ballCounter);
-        BallThread thread = new BallThread(b, canvas);
+        BallThread thread = new BallThread(b, canvas, null);
         thread.setPriority(priority);
         return thread;
     }
