@@ -7,19 +7,19 @@ public class Main {
         long start = System.currentTimeMillis();
         Thread t1 = new Thread(() -> {
             for (int i = 0; i < counterSize; i++) {
-                counter.increment();
+//                counter.increment();
 //                counter.syncIncrement();
 //                counter.syncIncrementBlock();
-//                counter.syncIncrementLock();
+                counter.syncIncrementLock();
             }
         });
 
         Thread t2 = new Thread(() -> {
             for (int i = 0; i < counterSize; i++) {
-                counter.decrement();
+//                counter.decrement();
 //                counter.syncDecrement();
 //                counter.syncDecrementBlocK();
-//                counter.syncDecrementLock();
+                counter.syncDecrementLock();
             }
         });
 
