@@ -1,0 +1,104 @@
+Starting cycle 1----------------------------------------------------------------
+Size: 504==================================================================
+Sequential total time (ms): 143
+Parallel in 4 threads total time (ms): 84
+Parallel in 6 threads total time (ms): 85
+Parallel in 12 threads total time (ms): 112
+Size: 1008==================================================================
+Sequential total time (ms): 1125
+Parallel in 4 threads total time (ms): 356
+Parallel in 6 threads total time (ms): 384
+Parallel in 12 threads total time (ms): 445
+Size: 1512==================================================================
+Sequential total time (ms): 5674
+Parallel in 4 threads total time (ms): 1579
+Parallel in 6 threads total time (ms): 1479
+Parallel in 12 threads total time (ms): 1744
+Size: 2520==================================================================
+Sequential total time (ms): 72135
+Parallel in 4 threads total time (ms): 16906
+Parallel in 6 threads total time (ms): 12767
+Parallel in 12 threads total time (ms): 10702
+Size: 3035==================================================================
+Sequential total time (ms): 145086
+Parallel in 4 threads total time (ms): 35955
+Parallel in 6 threads total time (ms): 24985
+Parallel in 12 threads total time (ms): 19602
+Starting cycle 2----------------------------------------------------------------
+Size: 504==================================================================
+Sequential total time (ms): 136
+Parallel in 4 threads total time (ms): 52
+Parallel in 6 threads total time (ms): 66
+Parallel in 12 threads total time (ms): 92
+Size: 1008==================================================================
+Sequential total time (ms): 1124
+Parallel in 4 threads total time (ms): 314
+Parallel in 6 threads total time (ms): 312
+Parallel in 12 threads total time (ms): 397
+Size: 1512==================================================================
+Sequential total time (ms): 7541
+Parallel in 4 threads total time (ms): 1622
+Parallel in 6 threads total time (ms): 1441
+Parallel in 12 threads total time (ms): 1704
+Size: 2520==================================================================
+Sequential total time (ms): 79881
+Parallel in 4 threads total time (ms): 18967
+Parallel in 6 threads total time (ms): 13087
+Parallel in 12 threads total time (ms): 10742
+Size: 3035==================================================================
+Sequential total time (ms): 145914
+Parallel in 4 threads total time (ms): 36619
+Parallel in 6 threads total time (ms): 25078
+Parallel in 12 threads total time (ms): 19197
+Starting cycle 3----------------------------------------------------------------
+Size: 504==================================================================
+Sequential total time (ms): 142
+Parallel in 4 threads total time (ms): 48
+Parallel in 6 threads total time (ms): 56
+Parallel in 12 threads total time (ms): 77
+Size: 1008==================================================================
+Sequential total time (ms): 1140
+Parallel in 4 threads total time (ms): 321
+Parallel in 6 threads total time (ms): 260
+Parallel in 12 threads total time (ms): 436
+Size: 1512==================================================================
+Sequential total time (ms): 5425
+Parallel in 4 threads total time (ms): 1391
+Parallel in 6 threads total time (ms): 1150
+Parallel in 12 threads total time (ms): 1704
+Size: 2520==================================================================
+Sequential total time (ms): 80512
+Parallel in 4 threads total time (ms): 19198
+Parallel in 6 threads total time (ms): 13200
+Parallel in 12 threads total time (ms): 10986
+Size: 3035==================================================================
+Sequential total time (ms): 147698
+Parallel in 4 threads total time (ms): 36456
+Parallel in 6 threads total time (ms): 25964
+Parallel in 12 threads total time (ms): 19716
+Starting cycle 4----------------------------------------------------------------
+Size: 504==================================================================
+Sequential total time (ms): 134
+Parallel in 4 threads total time (ms): 47
+Parallel in 6 threads total time (ms): 54
+Parallel in 12 threads total time (ms): 87
+Size: 1008==================================================================
+Sequential total time (ms): 1153
+Parallel in 4 threads total time (ms): 311
+Parallel in 6 threads total time (ms): 249
+Parallel in 12 threads total time (ms): 398
+Size: 1512==================================================================
+Sequential total time (ms): 5316
+Parallel in 4 threads total time (ms): 1446
+Parallel in 6 threads total time (ms): 1063
+Parallel in 12 threads total time (ms): 1745
+Size: 2520==================================================================
+Sequential total time (ms): 79032
+Parallel in 4 threads total time (ms): 18333
+Parallel in 6 threads total time (ms): 13067
+Parallel in 12 threads total time (ms): 10711
+Size: 3035==================================================================
+Sequential total time (ms): 143889
+Parallel in 4 threads total time (ms): 35653
+Parallel in 6 threads total time (ms): 24499
+Parallel in 12 threads total time (ms): 20330
