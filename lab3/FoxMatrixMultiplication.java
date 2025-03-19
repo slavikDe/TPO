@@ -10,8 +10,8 @@ public class FoxMatrixMultiplication {
         long seed = 2704880631582L;
         int numThreads = 4;
 
-        int[][] matrixA = StripedMatrixMultiplication.generateRandomMatrixWithSeed(size, size, seed);
-        int[][] matrixB = StripedMatrixMultiplication.generateRandomMatrixWithSeed(size, size, seed);
+        int[][] matrixA = Stripe.generateMatrixWithSeed(size, size, seed);
+        int[][] matrixB = Stripe.generateMatrixWithSeed(size, size, seed);
         int[][] result = new int[size][size];
 
         for (int i = 0; i < size; i++) {
