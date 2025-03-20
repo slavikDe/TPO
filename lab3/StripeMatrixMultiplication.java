@@ -70,8 +70,7 @@ public class StripeMatrixMultiplication {
             int startRow = i * rowsPerThread;
             int endRow = (i == numThreads - 1) ? rowsA : (i + 1) * rowsPerThread;
 
-            MatrixMultiplyTask task = new MatrixMultiplyTask(matrixA, matrixB, result,
-                    startRow, endRow, colsB, barrier);
+            MatrixMultiplyTask task = new MatrixMultiplyTask(matrixA, matrixB, result, startRow, endRow, colsB, barrier);
             threads[i] = new Thread(task);
             threads[i].start();
         }
@@ -90,20 +89,26 @@ public class StripeMatrixMultiplication {
 
     public static void main(String[] args) {
 
-        int[] sizes = {504, 1008, 1512, 2520, 3035};
-        int[] threadCounts = {4, 6, 12};
+        int[] sizes = {504, 1008, 1512, 2520, 3034};
+        int[] threadCounts = {4, 9, 16};
         long seed = 2704880631582L;
         long startTime, endTime;
         int[][] result;
+        int[][] matrixA = generateMatrixWithSeed(504, 504, seed);
+        int[][] matrixB = generateMatrixWithSeed(504, 504, seed);
 
 
         int cycleCount = 4;
+        System.out.println("Warm up");
+        startTime = System.nanoTime();
+        result = multiplySequential(matrixA, matrixB);
+        System.out.println("Sequential total time (ms): " + TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startTime));
+
         for (int i = 1; i <= cycleCount; i++) {
             System.out.println("Starting cycle " + i + "----------------------------------------------------------------");
-
             for (int size : sizes) {
-                int[][] matrixA = generateMatrixWithSeed(size, size, seed);
-                int[][] matrixB = generateMatrixWithSeed(size, size, seed);
+                matrixA = generateMatrixWithSeed(size, size, seed);
+                matrixB = generateMatrixWithSeed(size, size, seed);
 
                 System.out.println("Size: " + size + "==================================================================");
                 startTime = System.nanoTime();
@@ -148,5 +153,21 @@ public class StripeMatrixMultiplication {
             }
         }
         return result;
+    }
+
+    public static boolean compareMatrices(int[][] a, int[][] b) {
+        if (a.length != b.length || a[0].length != b[0].length) {
+            return false;
+        }
+
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a[0].length; j++) {
+                if (a[i][j] != b[i][j]) {
+                    System.out.println("Difference at [" + i + "][" + j + "]: " + a[i][j] + " vs " + b[i][j]);
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
