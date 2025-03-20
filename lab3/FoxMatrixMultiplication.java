@@ -1,22 +1,40 @@
+
+
+import java.util.Arrays;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.TimeUnit;
 
 public class FoxMatrixMultiplication {
 
     public static void main(String[] args) {
 //        int size = 1000;
-        int[] sizes = {504, 1008, 1512, 2520,  3024};
-        int[] threadCounts = {4, 6, 8};
-        long seed = 2704880631582L;
 //        int numThreads = 4;
+        int[] sizes = {504, 1008, 1512, 2520, 3034};
+        int[] threadCounts = {4, 9, 16};
+        long seed = 2704880631582L;
+        long startTime;
 
-        int repeats = 4;
-        for(int r = 0; r < repeats; r++) {
-            System.out.println("Reading " + r + " of " + repeats);
-            for(int size : sizes){
-                int[][] matrixA = StripedMatrixMultiplication.generateRandomMatrixWithSeed(size, size, seed);
-                int[][] matrixB = StripedMatrixMultiplication.generateRandomMatrixWithSeed(size, size, seed);
-                int[][] result = new int[size][size];
+        int[][] result;
+        int[][] matrixA = StripeMatrixMultiplication.generateMatrixWithSeed(504, 504, seed);
+        int[][] matrixB = StripeMatrixMultiplication.generateMatrixWithSeed(504, 504, seed);
+
+
+        int cycleCount = 4;
+        System.out.println("Warm up");
+        startTime = System.nanoTime();
+        result = multiplySequential(matrixA, matrixB);
+        System.out.println("Sequential total time (ms): " + TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startTime));
+
+
+        for(int c = 1; c <= cycleCount; c++) {
+            System.out.println("Cycle #" + c);
+            for(int size: sizes) {
+                matrixA = StripeMatrixMultiplication.generateMatrixWithSeed(size, size, seed);
+                matrixB = StripeMatrixMultiplication.generateMatrixWithSeed(size, size, seed);
+                result = new int[size][size];
+
+                System.out.println("Size: " + size + "==================================================================");
 
                 for (int i = 0; i < size; i++) {
                     for (int j = 0; j < size; j++) {
@@ -24,14 +42,11 @@ public class FoxMatrixMultiplication {
                     }
                 }
 
-                long startTime = System.currentTimeMillis();
-                multiplySequential(matrixA, matrixB, result);
-                long endTime = System.currentTimeMillis();
-                System.out.println("SIZE: " + size + " ========================== ");
+                startTime = System.nanoTime();
+                result = multiplySequential(matrixA, matrixB);
+                System.out.println("Sequential multiplication time: " + TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startTime) + " ms");
 
-                System.out.println("Sequential multiplication time: " + (endTime - startTime) + " ms");
-
-                for(int numThreads : threadCounts){
+                for(int numThreads: threadCounts) {
                     // reset matrix
                     for (int i = 0; i < size; i++) {
                         for (int j = 0; j < size; j++) {
@@ -39,19 +54,19 @@ public class FoxMatrixMultiplication {
                         }
                     }
 
-                    startTime = System.currentTimeMillis();
+                    startTime = System.nanoTime();
                     multiplyWithFox(matrixA, matrixB, result, numThreads);
-                    endTime = System.currentTimeMillis();
-
-                    System.out.println("Fox multiplication time with " + numThreads + " threads: " + (endTime - startTime) + " ms");
+                    System.out.println("Fox multiplication time with " + numThreads + " threads: " + TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startTime) + " ms");
                 }
             }
         }
+
     }
 
-    public static void multiplySequential(int[][] a, int[][] b, int[][] result) {
-        int n = a.length;
 
+    public static int[][] multiplySequential(int[][] a, int[][] b) {
+        int n = a.length;
+        int[][] result = new int[n][b[0].length];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 int sum = 0;
@@ -61,12 +76,13 @@ public class FoxMatrixMultiplication {
                 result[i][j] = sum;
             }
         }
+        return result;
     }
 
     public static void multiplyWithFox(int[][] a, int[][] b, int[][] result, int numThreads) {
         int n = a.length;
         int gridSize = (int) Math.sqrt(numThreads);
-        int blockSize = n / gridSize; // matrix length / sqrt numThreads
+        int blockSize = n / gridSize;
 
         int[][][][] sharedB = new int[gridSize][gridSize][blockSize][blockSize];
 
@@ -87,9 +103,7 @@ public class FoxMatrixMultiplication {
 
         for (int i = 0; i < gridSize; i++) {
             for (int j = 0; j < gridSize; j++) {
-                workers[i][j] = new FoxWorker(
-                        a, sharedB, result, i, j, gridSize, blockSize, barrier
-                );
+                workers[i][j] = new FoxWorker( a, sharedB, result, i, j, gridSize, blockSize, barrier  );
                 threads[i][j] = new Thread(workers[i][j]);
                 threads[i][j].start();
             }
@@ -120,9 +134,7 @@ public class FoxMatrixMultiplication {
         private int[][] localA;
         private int[][] localC;
 
-        public FoxWorker(int[][] a, int[][][][] sharedB, int[][] result,
-                         int rowIdx, int colIdx, int gridSize,
-                         int blockSize, CyclicBarrier barrier) {
+        public FoxWorker(int[][] a, int[][][][] sharedB, int[][] result,  int rowIdx, int colIdx, int gridSize, int blockSize, CyclicBarrier barrier) {
             this.a = a;
             this.sharedB = sharedB;
             this.result = result;
@@ -179,15 +191,6 @@ public class FoxMatrixMultiplication {
                     }
                 }
             }
-        }
-    }
-
-    public static void printMatrix(int[][] matrix) {
-        for (int[] row : matrix) {
-            for (int val : row) {
-                System.out.print(val + " ");
-            }
-            System.out.println();
         }
     }
 

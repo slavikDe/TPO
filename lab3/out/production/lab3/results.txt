@@ -1,0 +1,215 @@
+Warm up
+Sequential total time (ms): 177
+Starting cycle 1----------------------------------------------------------------
+Size: 504==================================================================
+Sequential total time (ms): 165
+Parallel in 4 threads total time (ms): 100
+Parallel in 9 threads total time (ms): 124
+Parallel in 16 threads total time (ms): 135
+Size: 1008==================================================================
+Sequential total time (ms): 1235
+Parallel in 4 threads total time (ms): 344
+Parallel in 9 threads total time (ms): 432
+Parallel in 16 threads total time (ms): 473
+Size: 1512==================================================================
+Sequential total time (ms): 5490
+Parallel in 4 threads total time (ms): 1337
+Parallel in 9 threads total time (ms): 1657
+Parallel in 16 threads total time (ms): 1706
+Size: 2520==================================================================
+Sequential total time (ms): 65354
+Parallel in 4 threads total time (ms): 16626
+Parallel in 9 threads total time (ms): 11059
+Parallel in 16 threads total time (ms): 10510
+Size: 3035==================================================================
+Sequential total time (ms): 132782
+Parallel in 4 threads total time (ms): 32919
+Parallel in 9 threads total time (ms): 20766
+Parallel in 16 threads total time (ms): 19009
+Starting cycle 2----------------------------------------------------------------
+Size: 504==================================================================
+Sequential total time (ms): 148
+Parallel in 4 threads total time (ms): 49
+Parallel in 9 threads total time (ms): 71
+Parallel in 16 threads total time (ms): 108
+Size: 1008==================================================================
+Sequential total time (ms): 1118
+Parallel in 4 threads total time (ms): 315
+Parallel in 9 threads total time (ms): 313
+Parallel in 16 threads total time (ms): 543
+Size: 1512==================================================================
+Sequential total time (ms): 5879
+Parallel in 4 threads total time (ms): 1733
+Parallel in 9 threads total time (ms): 1911
+Parallel in 16 threads total time (ms): 1905
+Size: 2520==================================================================
+Sequential total time (ms): 68679
+Parallel in 4 threads total time (ms): 16113
+Parallel in 9 threads total time (ms): 10845
+Parallel in 16 threads total time (ms): 10071
+Size: 3035==================================================================
+Sequential total time (ms): 134168
+Parallel in 4 threads total time (ms): 33111
+Parallel in 9 threads total time (ms): 21094
+Parallel in 16 threads total time (ms): 19154
+Starting cycle 3----------------------------------------------------------------
+Size: 504==================================================================
+Sequential total time (ms): 153
+Parallel in 4 threads total time (ms): 48
+Parallel in 9 threads total time (ms): 71
+Parallel in 16 threads total time (ms): 93
+Size: 1008==================================================================
+Sequential total time (ms): 1105
+Parallel in 4 threads total time (ms): 301
+Parallel in 9 threads total time (ms): 317
+Parallel in 16 threads total time (ms): 382
+Size: 1512==================================================================
+Sequential total time (ms): 8108
+Parallel in 4 threads total time (ms): 2135
+Parallel in 9 threads total time (ms): 2019
+Parallel in 16 threads total time (ms): 2018
+Size: 2520==================================================================
+Sequential total time (ms): 69557
+Parallel in 4 threads total time (ms): 16009
+Parallel in 9 threads total time (ms): 10961
+Parallel in 16 threads total time (ms): 10289
+Size: 3035==================================================================
+Sequential total time (ms): 139427
+Parallel in 4 threads total time (ms): 35395
+Parallel in 9 threads total time (ms): 21098
+Parallel in 16 threads total time (ms): 19547
+Starting cycle 4----------------------------------------------------------------
+Size: 504==================================================================
+Sequential total time (ms): 135
+Parallel in 4 threads total time (ms): 46
+Parallel in 9 threads total time (ms): 70
+Parallel in 16 threads total time (ms): 107
+Size: 1008==================================================================
+Sequential total time (ms): 1110
+Parallel in 4 threads total time (ms): 357
+Parallel in 9 threads total time (ms): 519
+Parallel in 16 threads total time (ms): 563
+Size: 1512==================================================================
+Sequential total time (ms): 7029
+Parallel in 4 threads total time (ms): 1784
+Parallel in 9 threads total time (ms): 1710
+Parallel in 16 threads total time (ms): 1709
+Size: 2520==================================================================
+Sequential total time (ms): 69409
+Parallel in 4 threads total time (ms): 16174
+Parallel in 9 threads total time (ms): 10888
+Parallel in 16 threads total time (ms): 10264
+Size: 3035==================================================================
+Sequential total time (ms): 136579
+Parallel in 4 threads total time (ms): 33101
+Parallel in 9 threads total time (ms): 20728
+Parallel in 16 threads total time (ms): 18977
+
+Fox
+
+Warm up
+Sequential total time (ms): 183
+Cycle #1
+Size: 504==================================================================
+Sequential multiplication time: 178 ms
+Fox multiplication time with 4 threads: 127 ms
+Fox multiplication time with 9 threads: 42 ms
+Fox multiplication time with 16 threads: 32 ms
+Size: 1008==================================================================
+Sequential multiplication time: 1360 ms
+Fox multiplication time with 4 threads: 326 ms
+Fox multiplication time with 9 threads: 246 ms
+Fox multiplication time with 16 threads: 226 ms
+Size: 1512==================================================================
+Sequential multiplication time: 6799 ms
+Fox multiplication time with 4 threads: 928 ms
+Fox multiplication time with 9 threads: 734 ms
+Fox multiplication time with 16 threads: 679 ms
+Size: 2520==================================================================
+Sequential multiplication time: 81807 ms
+Fox multiplication time with 4 threads: 9236 ms
+Fox multiplication time with 9 threads: 3260 ms
+Fox multiplication time with 16 threads: 3100 ms
+Size: 3034==================================================================
+Sequential multiplication time: 161218 ms
+Fox multiplication time with 4 threads: 15921 ms
+Fox multiplication time with 9 threads: 6720 ms
+Fox multiplication time with 16 threads: 6113 ms
+Cycle #2
+Size: 504==================================================================
+Sequential multiplication time: 157 ms
+Fox multiplication time with 4 threads: 35 ms
+Fox multiplication time with 9 threads: 26 ms
+Fox multiplication time with 16 threads: 20 ms
+Size: 1008==================================================================
+Sequential multiplication time: 1613 ms
+Fox multiplication time with 4 threads: 273 ms
+Fox multiplication time with 9 threads: 219 ms
+Fox multiplication time with 16 threads: 235 ms
+Size: 1512==================================================================
+Sequential multiplication time: 7118 ms
+Fox multiplication time with 4 threads: 927 ms
+Fox multiplication time with 9 threads: 698 ms
+Fox multiplication time with 16 threads: 679 ms
+Size: 2520==================================================================
+Sequential multiplication time: 82613 ms
+Fox multiplication time with 4 threads: 5081 ms
+Fox multiplication time with 9 threads: 3141 ms
+Fox multiplication time with 16 threads: 3249 ms
+Size: 3034==================================================================
+Sequential multiplication time: 150316 ms
+Fox multiplication time with 4 threads: 17491 ms
+Fox multiplication time with 9 threads: 6399 ms
+Fox multiplication time with 16 threads: 6052 ms
+Cycle #3
+Size: 504==================================================================
+Sequential multiplication time: 161 ms
+Fox multiplication time with 4 threads: 35 ms
+Fox multiplication time with 9 threads: 26 ms
+Fox multiplication time with 16 threads: 19 ms
+Size: 1008==================================================================
+Sequential multiplication time: 1610 ms
+Fox multiplication time with 4 threads: 285 ms
+Fox multiplication time with 9 threads: 213 ms
+Fox multiplication time with 16 threads: 226 ms
+Size: 1512==================================================================
+Sequential multiplication time: 6899 ms
+Fox multiplication time with 4 threads: 942 ms
+Fox multiplication time with 9 threads: 706 ms
+Fox multiplication time with 16 threads: 691 ms
+Size: 2520==================================================================
+Sequential multiplication time: 81801 ms
+Fox multiplication time with 4 threads: 5593 ms
+Fox multiplication time with 9 threads: 3111 ms
+Fox multiplication time with 16 threads: 3157 ms
+Size: 3034==================================================================
+Sequential multiplication time: 159875 ms
+Fox multiplication time with 4 threads: 15774 ms
+Fox multiplication time with 9 threads: 6546 ms
+Fox multiplication time with 16 threads: 6137 ms
+Cycle #4
+Size: 504==================================================================
+Sequential multiplication time: 160 ms
+Fox multiplication time with 4 threads: 35 ms
+Fox multiplication time with 9 threads: 25 ms
+Fox multiplication time with 16 threads: 21 ms
+Size: 1008==================================================================
+Sequential multiplication time: 1609 ms
+Fox multiplication time with 4 threads: 272 ms
+Fox multiplication time with 9 threads: 213 ms
+Fox multiplication time with 16 threads: 229 ms
+Size: 1512==================================================================
+Sequential multiplication time: 6902 ms
+Fox multiplication time with 4 threads: 917 ms
+Fox multiplication time with 9 threads: 691 ms
+Fox multiplication time with 16 threads: 701 ms
+Size: 2520==================================================================
+Sequential multiplication time: 77578 ms
+Fox multiplication time with 4 threads: 4964 ms
+Fox multiplication time with 9 threads: 3126 ms
+Fox multiplication time with 16 threads: 3086 ms
+Size: 3034==================================================================
+Sequential multiplication time: 159686 ms
+Fox multiplication time with 4 threads: 17791 ms
+Fox multiplication time with 9 threads: 6571 ms
+Fox multiplication time with 16 threads: 6059 ms
