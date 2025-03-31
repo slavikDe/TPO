@@ -15,8 +15,11 @@ public class StripeWithForkJoin  {
         long stopTime;
         long[] forkJoinTime = new long[sizes.length];
         long[] singleThreadTimes = new long[sizes.length];
+
         ForkJoinPool fjp = new ForkJoinPool();
-        Matrix A = new Matrix(10, 10, 1); // for warm up
+
+        // for warm up
+        Matrix A = new Matrix(10, 10, 1);
         Matrix B = new Matrix(10, 10, 1);
         Matrix R = new Matrix(A.getNRows(), B.getNRows());
         Matrix RFJ;

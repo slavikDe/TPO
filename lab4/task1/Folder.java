@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
-class Folder {
+public class Folder {
     private final List<Folder> subFolders;
     private final List<Document> documents;
 
@@ -15,15 +15,15 @@ class Folder {
         this.documents = documents;
     }
 
-    List<Folder> getSubFolders() {
+    public List<Folder> getSubFolders() {
         return this.subFolders;
     }
 
-    List<Document> getDocuments() {
+    public List<Document> getDocuments() {
         return this.documents;
     }
 
-    static Folder fromDirectory(File dir) throws IOException {
+    public static Folder fromDirectory(File dir) throws IOException {
         List<Document> documents = new LinkedList<>();
         List<Folder> subFolders = new LinkedList<>();
         for (File entry : Objects.requireNonNull(dir.listFiles())) {

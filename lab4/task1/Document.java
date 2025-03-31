@@ -7,14 +7,16 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-class Document {
+public class Document {
     private final List<String> lines;
+    private final String path;
 
-    Document(List<String> lines) {
+    Document(List<String> lines, String path) {
         this.lines = lines;
+        this.path = path;
     }
 
-    List<String> getLines() {
+    public List<String> getLines() {
         return this.lines;
     }
 
@@ -27,6 +29,9 @@ class Document {
                 line = reader.readLine();
             }
         }
-        return new Document(lines);
+        return new Document(lines, file.getPath());
     }
+
+    public String getPath(){return path;}
+
 }
