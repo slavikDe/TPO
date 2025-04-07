@@ -1,0 +1,82 @@
+# single pool
+=== Simulation Results ===
+Thread: main
+Average queue length: 37.05
+Rejection probability: 16.24%
+
+# pool of 4 pools
+=== Simulation Results ===
+Thread: pool-1-thread-6
+Average queue length: 36.92
+Rejection probability: 16.57%
+
+=== Simulation Results ===
+Thread: pool-1-thread-4
+Average queue length: 37.07
+Rejection probability: 16.04%
+
+=== Simulation Results ===
+Thread: pool-1-thread-3
+Average queue length: 36.78
+Rejection probability: 15.28%
+
+=== Simulation Results ===
+Thread: pool-1-thread-2
+Average queue length: 36.83
+Rejection probability: 15.87%
+
+=== Simulation Results ===
+Thread: pool-1-thread-5
+Average queue length: 36.62
+Rejection probability: 15.05%
+
+=== Simulation Results ===
+Thread: pool-1-thread-1
+Average queue length: 37.08
+Rejection probability: 16.18%
+
+
+
+
+
+
+
+
+
+    private static final int CONSUMER_GENERATOR_MIN_TIME = 25 / 10;  // up to x1.5
+    private static final int PRODUCER_GENERATOR_MIN_TIME = 200 / 10; // up to x2
+=== Simulation Results ===
+Thread: main
+Average queue length: 39.43
+Rejection probability: 43.24%
+
+# 6 pools
+=== Simulation Results ===
+Thread: pool-1-thread-3
+Average queue length: 39.53
+Rejection probability: 44.18%
+
+=== Simulation Results ===
+Thread: pool-1-thread-6
+Average queue length: 39.53
+Rejection probability: 44.07%
+
+=== Simulation Results ===
+Thread: pool-1-thread-4
+Average queue length: 39.52
+Rejection probability: 44.23%
+
+=== Simulation Results ===
+Thread: pool-1-thread-2
+Average queue length: 39.43
+Rejection probability: 44.09%
+
+=== Simulation Results ===
+Thread: pool-1-thread-5
+Average queue length: 39.52
+Rejection probability: 44.13%
+
+=== Simulation Results ===
+Thread: pool-1-thread-1
+Average queue length: 39.63
+Rejection probability: 44.24%
